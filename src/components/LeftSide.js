@@ -133,6 +133,7 @@ const Widget = styled.div`
         }
         &:nth-child(2) {
           color: rgba(0, 0, 0, 1);
+          font-weight: 600;
         }
       }
     }
@@ -166,6 +167,7 @@ const CommunityCard = styled(ArtCart)`
   text-align: left;
   display: flex;
   flex-direction: column;
+  font-weight: 600;
   a {
     color: black;
     padding: 4px 12px 4px 12px;

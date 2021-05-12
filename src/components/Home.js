@@ -29,8 +29,8 @@ const Container = styled.div`
 `;
 const Content = styled.div`
   max-width: 1128px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: auto;
+  /* margin-right: auto; */
 `;
 const Section = styled.section`
   min-height: 50px;
