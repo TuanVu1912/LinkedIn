@@ -213,6 +213,7 @@ const Header = styled.div`
 `;
 
 const ShareContent = styled.div`
+  cursor: pointer;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
