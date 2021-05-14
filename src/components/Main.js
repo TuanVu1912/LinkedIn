@@ -1,11 +1,38 @@
 import styled from "styled-components";
+import { connect } from "react-redux";
+import PostModal from "./PostModal";
+import { useState } from "react";
 const Main = (props) => {
+  const [showModal, setShowModal] = useState("close");
+  const handleClick = (e) => {
+    e.preventDefault();
+    if (e.target !== e.currentTarget) {
+      return;
+    }
+
+    switch (showModal) {
+      case "open":
+        setShowModal("close");
+        break;
+      case "close":
+        setShowModal("open");
+        break;
+      default:
+        setShowModal("close");
+        break;
+    }
+  };
+
   return (
     <Container>
       <ShareBox>
         <div>
-          <img src="/images/user.svg" alt="" />
-          <button>Start a post</button>
+          {props.user && props.user.photoURL ? (
+            <img src={props.user.photoURL} alt="" />
+          ) : (
+            <img src="/images/user.svg" alt="" />
+          )}
+          <button onClick={handleClick}>Start a post</button>
         </div>
         <div>
           <button>
@@ -79,6 +106,7 @@ const Main = (props) => {
           </SocialActions>
         </Article>
       </div>
+      <PostModal showModal={showModal} handleClick={handleClick} />
     </Container>
   );
 };
@@ -102,6 +130,7 @@ const ShareBox = styled(CommonCard)`
   background: white;
   div {
     button {
+      cursor: pointer;
       outline: none;
       color: rgba(0, 0, 0, 0.6);
       font-size: 14px;
@@ -271,6 +300,7 @@ const SocialActions = styled.div`
   min-height: 40px;
   padding: 4px 8px;
   button {
+    cursor: pointer;
     display: inline-flex;
     align-items: center;
     padding: 8px;
@@ -287,4 +317,11 @@ const SocialActions = styled.div`
     }
   }
 `;
-export default Main;
+const mapStateToProps = (state) => {
+  return {
+    user: state.userState.user,
+  };
+};
+const mapDispatchToProps = (dispatch) => ({});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Main);

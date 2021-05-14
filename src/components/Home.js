@@ -25,7 +25,7 @@ const Home = (props) => {
 };
 const Container = styled.div`
   padding-top: 52px;
-  max-width: 100%;
+  width: 100vw;
 `;
 const Content = styled.div`
   max-width: 1128px;
@@ -59,8 +59,10 @@ const Section = styled.section`
 `;
 const Layout = styled.div`
   display: grid;
-  grid-template-areas: "leftside main rightside";
-  grid-template-columns: minmax(0, 5fr) minmax(0, 12fr) minmax(300px, 7fr);
+  grid-template-areas: "a leftside main rightside b";
+  grid-template-columns:
+    minmax(0, 5fr) minmax(0, 3fr) minmax(0, 7fr) minmax(0, 4fr)
+    minmax(0, 5fr);
   column-gap: 25px;
   row-gap: 25px;
   /* grid-template-rows: auto; */

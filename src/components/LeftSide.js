@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { connect } from "react-redux";
 const LeftSide = (props) => {
   return (
     <Container>
@@ -7,7 +8,9 @@ const LeftSide = (props) => {
           <CartBackground />
           <a>
             <Photo />
-            <Link>Wellcome, there!</Link>
+            <Link>
+              Wellcome, {props.user ? props.user.displayName : "there"}!
+            </Link>
           </a>
           <a>
             <AddPhototText>Add a photo</AddPhototText>
@@ -107,6 +110,7 @@ const AddPhototText = styled.div`
   font-size: 12px;
   line-height: 1.33;
   font-weight: 400;
+  cursor: pointer;
 `;
 const Widget = styled.div`
   cursor: pointer;
@@ -192,4 +196,10 @@ const CommunityCard = styled(ArtCart)`
   }
 `;
 
-export default LeftSide;
+const mapStateToProps = (state) => {
+  return {
+    user: state.userState.user,
+  };
+};
+
+export default connect(mapStateToProps)(LeftSide);

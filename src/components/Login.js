@@ -1,7 +1,7 @@
-import styled from "styled-components";
 import { connect } from "react-redux";
-import { signInAPI } from "../actions";
 import { Redirect } from "react-router-dom";
+import styled from "styled-components";
+import { signInAPI } from "../actions";
 const Login = (props) => {
   return (
     <Container>
@@ -27,7 +27,6 @@ const Login = (props) => {
           </Google>
         </Form>
       </Section>
-      {/* <SectionJob></SectionJob> */}
     </Container>
   );
 };
