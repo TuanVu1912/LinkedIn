@@ -33,7 +33,42 @@ const Main = (props) => {
   return (
     <>
       {props.articles.length === 0 ? (
-        <p>The are no articles</p>
+        <Container>
+          <ShareBox>
+            <div>
+              {props.user && props.user.photoURL ? (
+                <img src={props.user.photoURL} alt="" />
+              ) : (
+                <img src="/images/user.svg" alt="" />
+              )}
+              <button
+                onClick={handleClick}
+                disabled={props.loading ? true : false}
+              >
+                Start a post
+              </button>
+            </div>
+            <div>
+              <button>
+                <img src="/images/photo-icon.svg" alt="" />
+                <span>Photo</span>
+              </button>
+              <button>
+                <img src="/images/video-icon.svg" alt="" />
+                <span>Video</span>
+              </button>
+              <button>
+                <img src="/images/event-icon.svg" alt="" />
+                <span>Event</span>
+              </button>
+              <button>
+                <img src="/images/article-icon.svg" alt="" />
+                <span>Write article</span>
+              </button>
+            </div>
+          </ShareBox>
+          <PostModal showModal={showModal} handleClick={handleClick} />
+        </Container>
       ) : (
         <Container>
           <ShareBox>
@@ -110,7 +145,7 @@ const Main = (props) => {
                       </button>
                     </li>
                     <li>
-                      • <a>{article.comments}</a>
+                      • <a>2 comments</a>
                     </li>
                   </SocialCounts>
                   <SocialActions>

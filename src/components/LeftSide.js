@@ -54,6 +54,7 @@ const LeftSide = (props) => {
 };
 const Container = styled.div`
   grid-area: leftside;
+  margin-left: 8px;
 `;
 const ArtCart = styled.div`
   text-align: center;
