@@ -70,7 +70,7 @@ const Main = (props) => {
             </div>
           </ShareBox>
           <Content>
-            {props.loading && <img src="/images/loading1.svg" />}
+            {props.loading && <img src="/images/loading2.svg" />}
             {props.articles.length > 0 &&
               props.articles.map((article, key) => (
                 <Article key={key}>
@@ -110,7 +110,7 @@ const Main = (props) => {
                       </button>
                     </li>
                     <li>
-                      • <a>2 comments</a>
+                      • <a>{article.comments}</a>
                     </li>
                   </SocialCounts>
                   <SocialActions>
