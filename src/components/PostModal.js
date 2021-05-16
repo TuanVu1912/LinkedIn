@@ -88,9 +88,7 @@ const PostModal = (props) => {
                       style={{ display: "none" }}
                       onChange={handleChange}
                     />
-                    <p>
-                      <label htmlFor="file">Select an image to share</label>
-                    </p>
+
                     {shareImage && (
                       <img src={URL.createObjectURL(shareImage)} />
                     )}
@@ -103,6 +101,7 @@ const PostModal = (props) => {
                         placeholder="Please input a video link"
                         value={videoLink}
                         onChange={(e) => setVideoLink(e.target.value)}
+                        style={{ width: "100%", height: "30px" }}
                       />
                       {videoLink && (
                         <ReactPlayer color={"red"} url={videoLink} />
@@ -119,11 +118,13 @@ const PostModal = (props) => {
                   <img src="/images/share-add.svg" alt="" />
                 </AssetButton>
                 <AssetButton>
-                  <img
-                    src="/images/share-photo.svg"
-                    alt=""
-                    onClick={() => switchAssetArea("image")}
-                  />
+                  <label htmlFor="file">
+                    <img
+                      src="/images/share-photo.svg"
+                      alt=""
+                      onClick={() => switchAssetArea("image")}
+                    />
+                  </label>
                 </AssetButton>
                 <AssetButton>
                   <img
