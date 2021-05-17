@@ -95,18 +95,17 @@ const PostModal = (props) => {
                   </UploadImage>
                 ) : (
                   assetArea === "media" && (
-                    <>
+                    <UploadVideo>
                       <input
                         type="text"
-                        placeholder="Please input a video link"
+                        placeholder="  Please input a video link"
                         value={videoLink}
                         onChange={(e) => setVideoLink(e.target.value)}
-                        style={{ width: "100%", height: "30px" }}
                       />
                       {videoLink && (
                         <ReactPlayer color={"red"} url={videoLink} />
                       )}
-                    </>
+                    </UploadVideo>
                   )
                 )}
               </Editor>
@@ -144,7 +143,9 @@ const PostModal = (props) => {
                 </AssetButton>
               </ShareComment>
               <PostButton
-                disabled={!editorText ? true : false}
+                disabled={
+                  !editorText && !videoLink && !shareImage ? true : false
+                }
                 onClick={(event) => postArticle(event)}
               >
                 Post
@@ -336,6 +337,19 @@ const UploadImage = styled.div`
     display: flex;
     justify-content: space-around;
   }
+`;
+const UploadVideo = styled.div`
+  input {
+    width: 100%;
+    height: 30px;
+    border-radius: 15px;
+    outline: none;
+    border: 1px solid #b2b2b2;
+    margin-bottom: 25px;
+  }
+`;
+const Video = styled.div`
+  width: 50%;
 `;
 // const Audience=styled.button``
 const mapStateToProps = (state) => {
