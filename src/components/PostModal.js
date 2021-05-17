@@ -265,6 +265,9 @@ const AssetButton = styled.button`
   border: none;
   background-color: white;
   cursor: pointer;
+  label {
+    cursor: pointer;
+  }
   &:hover {
     background-color: rgba(0, 0, 0, 0.1);
   }
